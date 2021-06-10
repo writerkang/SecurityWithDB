@@ -20,10 +20,10 @@ public class Role {
     @Column(unique = true, nullable = false)
     private String name;
 
-    private String urlsWithAuth;
+    private String urls;
 
-    public Role(String name, String urlsWithAuth) {
+    public Role(String name, String urls) {
         this.name = name;
-        this.urlsWithAuth = urlsWithAuth;
+        this.urls = urls;
     }
 }

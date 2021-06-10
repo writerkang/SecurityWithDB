@@ -8,12 +8,9 @@ import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 //@Component
 @RequiredArgsConstructor
@@ -30,10 +27,10 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
         var user = userRepository.findByName(authentication.getName());
 
         var urls = Arrays.stream(user.getRoles().split(","))
-            .map(role -> roleRepository.findByName(role).getUrlsWithAuth())
+            .map(role -> roleRepository.findByName(role).getUrls())
             .collect(Collectors.joining(","));
 
-        user.setAuthorizationUrls(urls);
+//        user.setAuthorizationUrls(urls);
 
         response.sendRedirect("/");
     }

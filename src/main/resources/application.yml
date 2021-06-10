@@ -3,9 +3,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+#    database-platform: org.hibernate.dialect.Oracle10gDialect
   datasource:
-    url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=Oracle
     username: sa
     password:
   h2:

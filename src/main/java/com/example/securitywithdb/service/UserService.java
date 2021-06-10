@@ -16,12 +16,14 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
+    private final OtpService otpService;
 
     @Transactional
     public void registerUser(RegisterUserCommand command) {
         var user = new User(command.getName(),
             passwordEncoder.encode(command.getPassword()),
-            String.join(",", command.getRoles()),"sdfsdffs");
+            String.join(",", command.getRoles()),
+            otpService.generateSecretKey());
 
         repository.save(user);
     }
