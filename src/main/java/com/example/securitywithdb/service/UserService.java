@@ -1,11 +1,8 @@
 package com.example.securitywithdb.service;
 
 import com.example.securitywithdb.command.RegisterUserCommand;
-import com.example.securitywithdb.domain.role.Role;
 import com.example.securitywithdb.domain.user.User;
 import com.example.securitywithdb.domain.user.UserRepository;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
